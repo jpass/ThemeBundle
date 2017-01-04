@@ -281,11 +281,11 @@
 {# Rows #}
 
 {% block form_row -%}
-        <div class="field{% if (not compound or force_error|default(false)) and not valid %} error{% endif %}">
-            {{ form_label(form) }}
-            {{ form_widget(form) }}
-            {{ form_errors(form) }}
-        </div>
+    <div class="field{% if (not compound or force_error|default(false)) and not valid %} error{% endif %} {{ required ? 'required' }}">
+        {{ form_label(form) }}
+        {{ form_widget(form) }}
+        {{ form_errors(form) }}
+    </div>
 {%- endblock form_row %}
 
 {% block choice_row -%}
