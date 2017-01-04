@@ -1,0 +1,12 @@
+{
+    "name": "jpass/theme-bundle",
+    "description": "Theme for semantic ui",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "jpass",
+            "homepage": "https://github.com/jpass"
+        }
+    ],
+    "require": {}
+}

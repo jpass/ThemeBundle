@@ -1,0 +1,3 @@
+#jpass_theme_homepage:
+#    path:     /
+#    defaults: { _controller: JpassThemeBundle:Default:index }
