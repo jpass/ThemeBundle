@@ -55,9 +55,7 @@
 {% block javascripts %}
     {{ parent() }}
     <script>
-//        semantic.ready = function() {
-            var $menu = $('.main.menu');
-            $menu.sidebar('attach events', '.launch.button');
-//        };
+        var $menu = $('.main.menu');
+        $menu.sidebar('attach events', '.launch.button');
     </script>
 {% endblock %}

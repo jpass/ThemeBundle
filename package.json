@@ -1,0 +1,22 @@
+{
+  "name": "theme-bundle",
+  "version": "1.0.0",
+  "description": "Semantic ui theme",
+  "main": "Jpass/ThemeBundle/Resources/views/theme/layout.html.twig",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jpass/ThemeBundle.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jpass/ThemeBundle/issues"
+  },
+  "homepage": "https://github.com/jpass/ThemeBundle#readme",
+  "devDependencies": {
+    "semantic-ui": "^2.2.7"
+  }
+}
