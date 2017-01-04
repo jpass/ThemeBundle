@@ -1,0 +1,40 @@
+{% macro button(url, options) %}
+    <a href="{{ url }}" class="ui button">
+        {% if options.icon is defined %}
+            <i class="{{ options.icon }} icon"></i>
+        {% endif %}
+        {{ options.label | default('') | trans }}
+    </a>
+{% endmacro %}
+
+{% macro create(url, options = {}) %}
+    {% if options.label is not defined %}
+        {% set options = options | merge ({label: 'Dodaj'}) %}
+    {% endif %}
+    {% if options.icon is not defined %}
+        {% set options = options | merge ({icon: 'add circle'}) %}
+    {% endif %}
+    {{ _self.button(url, options) }}
+{% endmacro %}
+
+{% macro cancel(url, options = {}) %}
+    {% if options.label is not defined %}
+        {% set options = options | merge ({label: 'Anuluj'}) %}
+    {% endif %}
+    {% if options.icon is not defined %}
+        {% set options = options | merge ({icon: 'angle double left'}) %}
+    {% endif %}
+    <a href="{{ url }}" class="ui button link">
+        {% if options.icon is defined %}
+            <i class="{{ options.icon }} icon"></i>
+        {% endif %}
+        {{ options.label | default('') | trans }}
+    </a>
+{% endmacro %}
+
+{% macro save(options = {}) %}
+    {% if options.label is not defined %}
+        {% set options = options | merge ({label: 'Zapisz'}) %}
+    {% endif %}
+    <input type="submit" value="{{ options.label | default('') | trans }}" class="ui positive button" />
+{% endmacro %}

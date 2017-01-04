@@ -1,0 +1,14 @@
+<div class="ui black big launch right attached fixed button">
+    <i class="content icon"></i>
+    <span class="text">Menu</span>
+</div>
+<nav class="ui left vertical inverted labeled icon sidebar main menu scale down">
+    {% for child in item.children %}
+        <a href="{{ child.uri }}" class="item {{ matcher.isCurrent(child) ? 'active' }}">
+            {% if child.labelAttributes.icon is defined %}
+                <i class="icon {{ child.labelAttributes.icon }}"></i>
+            {% endif %}
+            {{ child.label | trans }}
+        </a>
+    {% endfor %}
+</nav>
