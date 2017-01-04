@@ -48,7 +48,15 @@
     {% if options.label is not defined %}
         {% set options = options | merge ({label: 'Zapisz'}) %}
     {% endif %}
-    <input type="submit" value="{{ options.label | default('') | trans }}" class="ui positive button" />
+    {% if options.icon is not defined %}
+        {% set options = options | merge ({icon: 'check'}) %}
+    {% endif %}
+    <button type="submit" class="ui positive right labeled icon button">
+        {% if options.icon is defined %}
+            <i class="{{ options.icon }} icon"></i>
+        {% endif %}
+        {{ options.label | default('') | trans }}
+    </button>
 {% endmacro %}
 
 {% macro saveOrCancel(url, options = {}) %}
@@ -73,7 +81,7 @@
         {% set options = options | merge ({icon: 'delete'}) %}
     {% endif %}
     {{ form_start(delete_form) }}
-    <button type="submit" class="ui negative button">
+    <button type="submit" class="ui negative labeled icon button">
         {% if options.icon is defined %}
             <i class="{{ options.icon }} icon"></i>
         {% endif %}
