@@ -9,7 +9,7 @@
         }
     ],
     "require": {},
-    "autoload":     {
+    "autoload": {
         "psr-4": { "Jpass\\ThemeBundle\\": "" }
-    },
+    }
 }
