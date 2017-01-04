@@ -2,6 +2,7 @@
     "name": "jpass/theme-bundle",
     "description": "Theme for semantic ui",
     "license": "MIT",
+    "type": "symfony-bundle",
     "authors": [
         {
             "name": "jpass",
