@@ -8,5 +8,8 @@
             "homepage": "https://github.com/jpass"
         }
     ],
-    "require": {}
+    "require": {},
+    "autoload":     {
+        "psr-4": { "Jpass\\ThemeBundle\\": "" }
+    },
 }
