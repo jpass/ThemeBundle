@@ -64,3 +64,20 @@
         {{ _self.save(options.save) }}
     </div>
 {% endmacro %}
+
+{% macro delete(delete_form, options = {}) %}
+    {% if options.label is not defined %}
+        {% set options = options | merge ({label: 'Usuń'}) %}
+    {% endif %}
+    {% if options.icon is not defined %}
+        {% set options = options | merge ({icon: 'delete'}) %}
+    {% endif %}
+    {{ form_start(delete_form) }}
+    <button type="submit" class="ui negative button">
+        {% if options.icon is defined %}
+            <i class="{{ options.icon }} icon"></i>
+        {% endif %}
+        {{ options.label | default('') | trans }}
+    </button>
+    {{ form_end(delete_form) }}
+{% endmacro %}
