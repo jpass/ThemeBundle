@@ -1,18 +1,30 @@
 {% macro button(url, options) %}
-    <a href="{{ url }}" class="ui button">
-        {% if options.icon is defined %}
+    {% spaceless %}
+    <a href="{{ url }}" class="ui labeled icon button">
+        {%- if options.icon is defined -%}
             <i class="{{ options.icon }} icon"></i>
-        {% endif %}
+        {%- endif -%}
         {{ options.label | default('') | trans }}
     </a>
+    {% endspaceless %}
 {% endmacro %}
 
-{% macro create(url, options = {}) %}
+{% macro create(url, options = { label: 'Dodaj', icon: 'add circle'}) %}
+    {#{% if options.label is not defined %}#}
+        {#{% set options = options | merge ({label: 'Dodaj'}) %}#}
+    {#{% endif %}#}
+    {#{% if options.icon is not defined %}#}
+        {#{% set options = options | merge ({icon: 'add circle'}) %}#}
+    {#{% endif %}#}
+    {{ _self.button(url, options) }}
+{% endmacro %}
+
+{% macro edit(url, options = {}) %}
     {% if options.label is not defined %}
-        {% set options = options | merge ({label: 'Dodaj'}) %}
+        {% set options = options | merge ({label: 'Edytuj'}) %}
     {% endif %}
     {% if options.icon is not defined %}
-        {% set options = options | merge ({icon: 'add circle'}) %}
+        {% set options = options | merge ({icon: 'edit'}) %}
     {% endif %}
     {{ _self.button(url, options) }}
 {% endmacro %}
@@ -37,4 +49,18 @@
         {% set options = options | merge ({label: 'Zapisz'}) %}
     {% endif %}
     <input type="submit" value="{{ options.label | default('') | trans }}" class="ui positive button" />
+{% endmacro %}
+
+{% macro saveOrCancel(url, options = {}) %}
+    {% if options.save is not defined %}
+        {% set options = options | merge ({save: {}}) %}
+    {% endif %}
+    {% if options.cancel is not defined %}
+        {% set options = options | merge ({cancel: {}}) %}
+    {% endif %}
+    <div class="ui buttons">
+        {{ _self.cancel(url, options.cancel) }}
+        <div class="or" data-text="{{ 'lub' | trans }}"></div>
+        {{ _self.save(options.save) }}
+    </div>
 {% endmacro %}
