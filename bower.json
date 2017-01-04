@@ -1,0 +1,21 @@
+{
+  "name": "theme-bundle",
+  "description": "Semantic ui theme",
+  "main": "Jpass/ThemeBundle/Resources/views/theme/layout.html.twig",
+  "authors": [
+    "jpass"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/jpass/ThemeBundle",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "Resources/assets/vendor",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "^3.1.1"
+  }
+}
