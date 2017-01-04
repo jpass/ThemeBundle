@@ -9,13 +9,13 @@
     {% endspaceless %}
 {% endmacro %}
 
-{% macro create(url, options = { label: 'Dodaj', icon: 'add circle'}) %}
-    {#{% if options.label is not defined %}#}
-        {#{% set options = options | merge ({label: 'Dodaj'}) %}#}
-    {#{% endif %}#}
-    {#{% if options.icon is not defined %}#}
-        {#{% set options = options | merge ({icon: 'add circle'}) %}#}
-    {#{% endif %}#}
+{% macro create(url, options = {}) %}
+    {% if options.label is not defined %}
+        {% set options = options | merge ({label: 'Dodaj'}) %}
+    {% endif %}
+    {% if options.icon is not defined %}
+        {% set options = options | merge ({icon: 'add circle'}) %}
+    {% endif %}
     {{ _self.button(url, options) }}
 {% endmacro %}
 
