@@ -1,10 +1,12 @@
 {% macro button(url, options) %}
     {% spaceless %}
-    <a href="{{ url }}" class="ui labeled icon button">
+    <a href="{{ url }}" class="ui {{ options.label ? 'labeled' }} icon button" {% if options.title is defined %}title="{{ options.title }}"{% endif %}>
         {%- if options.icon is defined -%}
             <i class="{{ options.icon }} icon"></i>
         {%- endif -%}
+        {%- if options.label -%}
         {{ options.label | default('') | trans }}
+        {%- endif -%}
     </a>
     {% endspaceless %}
 {% endmacro %}
@@ -12,6 +14,9 @@
 {% macro create(url, options = {}) %}
     {% if options.label is not defined %}
         {% set options = options | merge ({label: 'Dodaj'}) %}
+    {% endif %}
+    {% if not options.label and options.title is not defined %}
+        {% set options = options | merge ({title: 'Dodaj'}) %}
     {% endif %}
     {% if options.icon is not defined %}
         {% set options = options | merge ({icon: 'add circle'}) %}
@@ -22,6 +27,9 @@
 {% macro edit(url, options = {}) %}
     {% if options.label is not defined %}
         {% set options = options | merge ({label: 'Edytuj'}) %}
+    {% endif %}
+    {% if not options.label and options.title is not defined %}
+        {% set options = options | merge ({title: 'Edytuj'}) %}
     {% endif %}
     {% if options.icon is not defined %}
         {% set options = options | merge ({icon: 'edit'}) %}
