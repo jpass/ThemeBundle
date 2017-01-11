@@ -1,0 +1,49 @@
+{
+  "name": "datatables.net-fixedheader-se",
+  "description": "FixedHeader for DataTables with styling for [Semantic UI](http://semantic-ui.com/)",
+  "main": [
+    "css/fixedHeader.semanticui.css"
+  ],
+  "keywords": [
+    "fixed headers",
+    "sticky",
+    "DataTables",
+    "jQuery",
+    "table",
+    "Semantic UI"
+  ],
+  "dependencies": {
+    "jquery": ">=1.7",
+    "datatables.net-se": ">=1.10.13",
+    "datatables.net-fixedheader": ">=3.1.2"
+  },
+  "moduleType": [
+    "globals",
+    "amd",
+    "node"
+  ],
+  "ignore": [
+    "composer.json",
+    "datatables.json",
+    "package.json"
+  ],
+  "authors": [
+    {
+      "name": "SpryMedia Ltd",
+      "homepage": "https://datatables.net"
+    }
+  ],
+  "homepage": "https://datatables.net",
+  "license": "MIT",
+  "version": "3.1.2",
+  "_release": "3.1.2",
+  "_resolution": {
+    "type": "version",
+    "tag": "3.1.2",
+    "commit": "2302ba4f149239c184ad909752a0600bc1570f28"
+  },
+  "_source": "https://github.com/DataTables/Dist-DataTables-FixedHeader-SemanticUI.git",
+  "_target": "^3.1.2",
+  "_originalSource": "datatables.net-fixedheader-se",
+  "_direct": true
+}
