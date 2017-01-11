@@ -55,7 +55,9 @@
 {% block javascripts %}
     {{ parent() }}
     <script>
-        var $menu = $('.main.menu');
-        $menu.sidebar('attach events', '.launch.button');
+        $(document).ready(function(){
+            var $menu = $('.main.menu');
+            $menu.sidebar('attach events', '.launch.button');
+        });
     </script>
 {% endblock %}
