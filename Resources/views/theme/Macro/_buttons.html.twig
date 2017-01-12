@@ -24,6 +24,19 @@
     {{ _self.button(url, options) }}
 {% endmacro %}
 
+{% macro show(url, options = {}) %}
+    {% if options.label is not defined %}
+        {% set options = options | merge ({label: 'Pokaż'}) %}
+    {% endif %}
+    {% if not options.label and options.title is not defined %}
+        {% set options = options | merge ({title: 'Pokaż'}) %}
+    {% endif %}
+    {% if options.icon is not defined %}
+        {% set options = options | merge ({icon: 'search'}) %}
+    {% endif %}
+    {{ _self.button(url, options) }}
+{% endmacro %}
+
 {% macro edit(url, options = {}) %}
     {% if options.label is not defined %}
         {% set options = options | merge ({label: 'Edytuj'}) %}
@@ -42,13 +55,13 @@
         {% set options = options | merge ({label: 'Anuluj'}) %}
     {% endif %}
     {% if options.icon is not defined %}
-        {% set options = options | merge ({icon: 'angle double left'}) %}
+        {% set options = options | merge ({icon: 'angle double right'}) %}
     {% endif %}
-    <a href="{{ url }}" class="ui button link">
+    <a href="{{ url }}" class="ui left button link">
+        {{ options.label | default('') | trans }}
         {% if options.icon is defined %}
             <i class="{{ options.icon }} icon"></i>
         {% endif %}
-        {{ options.label | default('') | trans }}
     </a>
 {% endmacro %}
 
@@ -57,9 +70,9 @@
         {% set options = options | merge ({label: 'Zapisz'}) %}
     {% endif %}
     {% if options.icon is not defined %}
-        {% set options = options | merge ({icon: 'check'}) %}
+        {% set options = options | merge ({icon: 'save'}) %}
     {% endif %}
-    <button type="submit" class="ui positive right labeled icon button">
+    <button type="submit" class="ui positive left labeled icon button">
         {% if options.icon is defined %}
             <i class="{{ options.icon }} icon"></i>
         {% endif %}
@@ -75,9 +88,9 @@
         {% set options = options | merge ({cancel: {}}) %}
     {% endif %}
     <div class="ui buttons">
-        {{ _self.cancel(url, options.cancel) }}
-        <div class="or" data-text="{{ 'lub' | trans }}"></div>
         {{ _self.save(options.save) }}
+        <div class="or" data-text="{{ 'lub' | trans }}"></div>
+        {{ _self.cancel(url, options.cancel) }}
     </div>
 {% endmacro %}
 
