@@ -188,6 +188,7 @@
             {% endfor %}
         </ul>
     {% else %}
+        {% set attr = attr|merge({class: (attr.style|default('') ~ ' grouped fields')|trim}) %}
         <div {{ block('widget_container_attributes') }}>
             {% for child in form %}
                 {{ form_widget(child, {
@@ -206,8 +207,10 @@
     {% if 'checkbox-inline' in parent_label_class %}
         {{ form_label(form, null, { widget: parent() }) }}
     {% else %}
-        <div class="checkbox">
-            {{ form_label(form, null, { widget: parent() }) }}
+        <div class="field">
+            <div class="ui toggle checkbox">
+                {{ form_label(form, null, { widget: parent() }) }}
+            </div>
         </div>
     {% endif %}
 {%- endblock checkbox_widget %}
@@ -272,8 +275,8 @@
             {% set label = name|humanize %}
         {%- endif -%}
     {% endif %}
+    {{ widget|raw }}
     <label{% for attrname, attrvalue in label_attr %} {{ attrname }}="{{ attrvalue }}"{% endfor %}>
-        {{ widget|raw }}
         {{ translation_domain is same as(false) ? label : label|trans({}, translation_domain) }}
     </label>
 {%- endblock checkbox_radio_label %}
@@ -309,12 +312,8 @@
 {%- endblock datetime_row %}
 
 {% block checkbox_row -%}
-    <div class="row">
-        <div class="large-12 columns{% if not valid %} error{% endif %}">
-            {{ form_widget(form) }}
-            {{ form_errors(form) }}
-        </div>
-    </div>
+    {{ form_widget(form) }}
+    {{ form_errors(form) }}
 {%- endblock checkbox_row %}
 
 {% block radio_row -%}
