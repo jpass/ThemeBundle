@@ -1,0 +1,35 @@
+{
+  "name": "datatables-searchhighlight",
+  "homepage": "https://github.com/biofavor/dtsh",
+  "description": "for datatables",
+  "main": [
+    "dataTables.searchHighlight.css",
+    "dataTables.searchHighlight.js",
+    "jquery.highlight.js"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "keywords": [
+    "datatables"
+  ],
+  "authors": [
+    "biofavor",
+    "allen"
+  ],
+  "_release": "f4d4a6034e",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "f4d4a6034e73a24718ee1f3ced4efb5fcaeef713"
+  },
+  "_source": "https://github.com/biofavor/datatablesSearchHighlight.git",
+  "_target": "*",
+  "_originalSource": "datatablesSearchHighlight",
+  "_direct": true
+}
