@@ -8,12 +8,63 @@
         <link rel="stylesheet" href="{{ asset('bundles/jpasstheme/assets/semantic/dist/semantic.min.css') }}">
     {% endblock %}
     <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+    <style>
+        .spinner {
+            width: 40px;
+            height: 40px;
+            background-color: #333333;
+
+            margin: 100px auto;
+            -webkit-animation: sk-rotateplane 1.2s infinite ease-in-out;
+            animation: sk-rotateplane 1.2s infinite ease-in-out;
+        }
+
+        @-webkit-keyframes sk-rotateplane {
+            0% { -webkit-transform: perspective(120px) }
+            50% { -webkit-transform: perspective(120px) rotateY(180deg) }
+            100% { -webkit-transform: perspective(120px) rotateY(180deg)  rotateX(180deg) }
+        }
+
+        @keyframes sk-rotateplane {
+            0% {
+                transform: perspective(120px) rotateX(0deg) rotateY(0deg);
+                -webkit-transform: perspective(120px) rotateX(0deg) rotateY(0deg)
+            } 50% {
+                  transform: perspective(120px) rotateX(-180.1deg) rotateY(0deg);
+                  -webkit-transform: perspective(120px) rotateX(-180.1deg) rotateY(0deg)
+              } 100% {
+                    transform: perspective(120px) rotateX(-180deg) rotateY(-179.9deg);
+                    -webkit-transform: perspective(120px) rotateX(-180deg) rotateY(-179.9deg);
+                }
+        }
+        .spinner-wrap {
+            z-index: 10000;
+            text-align: center;
+            position: fixed;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            background: #fff;
+        }
+        .spinner-wrap p
+        {
+            margin: 0 0 1em;
+            line-height: 1.4285em;
+        }
+    </style>
 </head>
-<body>
-{% block body %}{% endblock %}
-{% block javascripts %}
-    <script src="{{ asset('bundles/jpasstheme/assets/vendor/jquery/dist/jquery.min.js') }}"></script>
-    <script src="{{ asset('bundles/jpasstheme/assets/semantic/dist/semantic.min.js') }}"></script>
-{% endblock %}
+<body onbeforeunload="$('.spinner-wrap').show();" onload="$('.spinner-wrap').hide();">
+    <div class="spinner-wrap">
+        <p>
+            <div class="spinner"></div>
+        </p>
+        <p>Ładowanie...</p>
+    </div>
+    {% block body %}{% endblock %}
+    {% block javascripts %}
+        <script src="{{ asset('bundles/jpasstheme/assets/vendor/jquery/dist/jquery.min.js') }}"></script>
+        <script src="{{ asset('bundles/jpasstheme/assets/semantic/dist/semantic.min.js') }}"></script>
+    {% endblock %}
 </body>
 </html>
