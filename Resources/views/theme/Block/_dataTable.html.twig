@@ -15,4 +15,32 @@
     <script src="{{ asset('bundles/jpasstheme/assets/vendor/datatables.net-buttons/js/buttons.colVis.min.js') }}"></script>
     <script src="{{ asset('bundles/jpasstheme/assets/vendor/datatables-searchhighlight/jquery.highlight.js') }}"></script>
     <script src="{{ asset('bundles/jpasstheme/assets/vendor/datatables-searchhighlight/dataTables.searchHighlight.js') }}"></script>
+    <script>
+        $.extend( true, $.fn.dataTable.defaults, {
+            "language": {
+                "url": "{{ asset('bundles/jpasstheme/assets/vendor/datatables-i18n/i18n/pl.json') }}"
+            },
+            buttons: [
+                { extend: 'colvis', text: 'Wyświetlanie kolumn' },
+                {
+                    text: 'Wyczyść ustawienia kolumn',
+                    action: function ( e, dt, node, config ) {
+                        dt.state.clear();
+                        window.location.reload();
+                    }
+                }
+            ],
+            fixedHeader: true,
+            colReorder: true,
+            stateSave:  true,
+            searchHighlight: true
+        } );
+
+        $(document).on( 'init.dt', function ( e, settings ) {
+            var api = new $.fn.dataTable.Api( settings );
+
+            var table = api.table();
+            $('<div class="sixteen wide column " />').append(table.buttons().container()).prependTo( $('div.row:eq(0)', table.table().container()) );
+        } );
+    </script>
 {% endblock %}
