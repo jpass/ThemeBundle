@@ -17,6 +17,8 @@
   },
   "homepage": "https://github.com/jpass/ThemeBundle#readme",
   "devDependencies": {
-    "semantic-ui": "^2.2.7"
+    "semantic-ui": "^2.2.7",
+    "gulp": "^3.9.1",
+    "gulp-ruby-sass": "^2.1.1"
   }
 }
