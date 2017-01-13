@@ -1,8 +1,16 @@
 {% extends 'JpassThemeBundle:theme:base.html.twig' %}
 
 {% block body %}
-    {% block menu %}{% endblock %}
+    {% block menu %}
+    {% endblock %}
     <div id="content" class="pusher">
+        <div class="ui fixed top menu">
+            <a class="launch icon mobile only item">
+                <i class="content icon"></i>
+            </a>
+            {% block top_menu %}
+            {% endblock %}
+        </div>
         <div class="ui container">
             {% block content %}
             {% endblock %}
@@ -60,7 +68,14 @@
     <script>
         $(document).ready(function(){
             var $menu = $('.main.menu');
-            $menu.sidebar('attach events', '.launch.button');
+            $menu
+                .sidebar({
+                    dimPage          : true,
+                    transition       : 'scale down',
+                    mobileTransition : 'uncover'
+                })
+            ;
+            $menu.sidebar('attach events', '.launch');
         });
     </script>
 {% endblock %}

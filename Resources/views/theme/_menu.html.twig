@@ -1,8 +1,8 @@
-<div class="ui black big launch right attached fixed button">
+<div class="ui black big launch right attached fixed button mobile hidden">
     <i class="content icon"></i>
     <span class="text">Menu</span>
 </div>
-<nav class="ui left vertical inverted labeled icon sidebar main menu scale down">
+<nav class="ui vertical inverted sidebar labeled icon main menu">
     {% for child in item.children %}
         <a href="{{ child.uri }}" class="item {{ matcher.isCurrent(child) ? 'active' }}">
             {% if child.labelAttributes.icon is defined %}
