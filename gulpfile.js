@@ -7,11 +7,7 @@ gulp.task('sass', function() {
 });
 
 gulp.task('watch', function(){
-    return gulp.watch('Resources/public/assets/sass/**/*.sass', function(){
-        gulp.run('sass');
-    });
+    return gulp.watch('Resources/public/assets/sass/**/*.sass', ['sass']);
 });
 
-gulp.task('default', function() {
-    gulp.run('sass');
-});
+gulp.task('default', ['sass']);

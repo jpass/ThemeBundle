@@ -1,7 +1,14 @@
+@charset "UTF-8";
 #content {
   padding-top: 50px;
   padding-bottom: 50px; }
 
-.fixedHeader-floating {
-  z-index: 2;
-  margin-top: 40px !important; }
+.buttons-collection span:after {
+  display: inline-block;
+  content: "▾";
+  padding-left: 0.5em; }
+
+@media only screen and (min-width: 767px) {
+  .fixedHeader-floating {
+    z-index: 2;
+    margin-top: 40px !important; } }

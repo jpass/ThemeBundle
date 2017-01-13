@@ -30,17 +30,49 @@
                     }
                 }
             ],
+            dom:
+                "<'ui stackable grid'"+
+                    "<'row'"+
+                        "<'eight wide column'l>"+
+                        "<'right aligned eight wide column'f>"+
+                    ">"+
+                    "<'row dt-table'"+
+                        "<'sixteen wide column'tr>"+
+                    ">"+
+                    "<'row'"+
+                        "<'seven wide column'i>"+
+                        "<'right aligned nine wide column'p>"+
+                    ">"+
+                ">",
             fixedHeader: true,
             colReorder: true,
             stateSave:  true,
             searchHighlight: true
         } );
 
+        $.extend( true, $.fn.dataTable.Buttons.defaults, {
+            dom: {
+                container: {
+                    className: 'dt-buttons ui stackable menu'
+                },
+                button: {
+                    tag: 'a',
+                    className: 'item'
+                },
+                collection: {
+                    tag: 'div',
+                    className: 'dt-button-collection ui vertical menu'
+                }
+            }
+        } );
+
         $(document).on( 'init.dt', function ( e, settings ) {
             var api = new $.fn.dataTable.Api( settings );
 
             var table = api.table();
-            $('<div class="sixteen wide column " />').append(table.buttons().container()).prependTo( $('div.row:eq(0)', table.table().container()) );
+            var $container = $('.ui.grid:eq(0)', table.table().container());
+            var $buttons = table.buttons().container();
+            $('<div class="row" style="padding-bottom: 0;" />').append($buttons).prependTo($container);
         } );
     </script>
 {% endblock %}
