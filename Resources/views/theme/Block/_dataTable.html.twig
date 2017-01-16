@@ -33,15 +33,16 @@
             dom:
                 "<'ui stackable grid'"+
                     "<'row'"+
-                        "<'eight wide column'l>"+
+                        "<'eight wide column'B>"+
                         "<'right aligned eight wide column'f>"+
                     ">"+
                     "<'row dt-table'"+
                         "<'sixteen wide column'tr>"+
                     ">"+
                     "<'row'"+
-                        "<'seven wide column'i>"+
-                        "<'right aligned nine wide column'p>"+
+                        "<'three wide column'l>"+
+                        "<'five wide column'i>"+
+                        "<'right aligned eight wide column'p>"+
                     ">"+
                 ">",
             fixedHeader: true,
@@ -64,15 +65,6 @@
                     className: 'dt-button-collection ui vertical menu'
                 }
             }
-        } );
-
-        $(document).on( 'init.dt', function ( e, settings ) {
-            var api = new $.fn.dataTable.Api( settings );
-
-            var table = api.table();
-            var $container = $('.ui.grid:eq(0)', table.table().container());
-            var $buttons = table.buttons().container();
-            $('<div class="row" style="padding-bottom: 0;" />').append($buttons).prependTo($container);
         } );
     </script>
 {% endblock %}
