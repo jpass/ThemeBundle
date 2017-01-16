@@ -1,6 +1,9 @@
 {% macro button(url, options) %}
+    {% if options.label is not defined %}
+        {% set options = options | merge ({label: false}) %}
+    {% endif %}
     {% spaceless %}
-    <a href="{{ url }}" class="ui {{ options.label ? 'labeled' }} icon button" {% if options.title is defined %}title="{{ options.title }}"{% endif %}>
+    <a href="{{ url }}" class="ui {{ options.label ? 'labeled' }} icon button {{ options.class is defined ? options.class }}" {% if options.title is defined %}title="{{ options.title }}"{% endif %}>
         {%- if options.icon is defined -%}
             <i class="{{ options.icon }} icon"></i>
         {%- endif -%}
@@ -14,14 +17,14 @@
 {% macro create(url, options = {}) %}
     {% import _self as buttons %}
 
-    {% if options.label is not defined %}
-        {% set options = options | merge ({label: 'Dodaj'}) %}
-    {% endif %}
-    {% if not options.label and options.title is not defined %}
+    {% if (options.label is not defined or not options.label) and options.title is not defined %}
         {% set options = options | merge ({title: 'Dodaj'}) %}
     {% endif %}
     {% if options.icon is not defined %}
         {% set options = options | merge ({icon: 'add circle'}) %}
+    {% endif %}
+    {% if options.class is not defined %}
+        {% set options = options | merge ({class: 'primary'}) %}
     {% endif %}
     {{ buttons.button(url, options) }}
 {% endmacro %}
@@ -29,10 +32,7 @@
 {% macro show(url, options = {}) %}
     {% import _self as buttons %}
 
-    {% if options.label is not defined %}
-        {% set options = options | merge ({label: 'Pokaż'}) %}
-    {% endif %}
-    {% if not options.label and options.title is not defined %}
+    {% if (options.label is not defined or not options.label) and options.title is not defined %}
         {% set options = options | merge ({title: 'Pokaż'}) %}
     {% endif %}
     {% if options.icon is not defined %}
@@ -44,10 +44,7 @@
 {% macro edit(url, options = {}) %}
     {% import _self as buttons %}
 
-    {% if options.label is not defined %}
-        {% set options = options | merge ({label: 'Edytuj'}) %}
-    {% endif %}
-    {% if not options.label and options.title is not defined %}
+    {% if (options.label is not defined or not options.label) and options.title is not defined %}
         {% set options = options | merge ({title: 'Edytuj'}) %}
     {% endif %}
     {% if options.icon is not defined %}
@@ -61,13 +58,13 @@
         {% set options = options | merge ({label: 'Anuluj'}) %}
     {% endif %}
     {% if options.icon is not defined %}
-        {% set options = options | merge ({icon: 'angle double right'}) %}
+        {% set options = options | merge ({icon: 'angle double left'}) %}
     {% endif %}
     <a href="{{ url }}" class="ui left button link">
-        {{ options.label | default('') | trans }}
         {% if options.icon is defined %}
             <i class="{{ options.icon }} icon"></i>
         {% endif %}
+        {{ options.label | default('') | trans }}
     </a>
 {% endmacro %}
 
@@ -78,11 +75,11 @@
     {% if options.icon is not defined %}
         {% set options = options | merge ({icon: 'save'}) %}
     {% endif %}
-    <button type="submit" class="ui positive left labeled icon button">
+    <button type="submit" class="ui positive right labeled icon button">
+        {{ options.label | default('') | trans }}
         {% if options.icon is defined %}
             <i class="{{ options.icon }} icon"></i>
         {% endif %}
-        {{ options.label | default('') | trans }}
     </button>
 {% endmacro %}
 
@@ -96,9 +93,9 @@
         {% set options = options | merge ({cancel: {}}) %}
     {% endif %}
     <div class="ui buttons">
-        {{ buttons.save(options.save) }}
-        <div class="or" data-text="{{ 'lub' | trans }}"></div>
         {{ buttons.cancel(url, options.cancel) }}
+        <div class="or" data-text="{{ 'lub' | trans }}"></div>
+        {{ buttons.save(options.save) }}
     </div>
 {% endmacro %}
 
