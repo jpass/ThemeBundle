@@ -12,6 +12,8 @@
 {% endmacro %}
 
 {% macro create(url, options = {}) %}
+    {% import _self as buttons %}
+
     {% if options.label is not defined %}
         {% set options = options | merge ({label: 'Dodaj'}) %}
     {% endif %}
@@ -21,10 +23,12 @@
     {% if options.icon is not defined %}
         {% set options = options | merge ({icon: 'add circle'}) %}
     {% endif %}
-    {{ _self.button(url, options) }}
+    {{ buttons.button(url, options) }}
 {% endmacro %}
 
 {% macro show(url, options = {}) %}
+    {% import _self as buttons %}
+
     {% if options.label is not defined %}
         {% set options = options | merge ({label: 'Pokaż'}) %}
     {% endif %}
@@ -34,10 +38,12 @@
     {% if options.icon is not defined %}
         {% set options = options | merge ({icon: 'search'}) %}
     {% endif %}
-    {{ _self.button(url, options) }}
+    {{ buttons.button(url, options) }}
 {% endmacro %}
 
 {% macro edit(url, options = {}) %}
+    {% import _self as buttons %}
+
     {% if options.label is not defined %}
         {% set options = options | merge ({label: 'Edytuj'}) %}
     {% endif %}
@@ -47,7 +53,7 @@
     {% if options.icon is not defined %}
         {% set options = options | merge ({icon: 'edit'}) %}
     {% endif %}
-    {{ _self.button(url, options) }}
+    {{ buttons.button(url, options) }}
 {% endmacro %}
 
 {% macro cancel(url, options = {}) %}
@@ -81,6 +87,8 @@
 {% endmacro %}
 
 {% macro saveOrCancel(url, options = {}) %}
+    {% import _self as buttons %}
+
     {% if options.save is not defined %}
         {% set options = options | merge ({save: {}}) %}
     {% endif %}
@@ -88,9 +96,9 @@
         {% set options = options | merge ({cancel: {}}) %}
     {% endif %}
     <div class="ui buttons">
-        {{ _self.save(options.save) }}
+        {{ buttons.save(options.save) }}
         <div class="or" data-text="{{ 'lub' | trans }}"></div>
-        {{ _self.cancel(url, options.cancel) }}
+        {{ buttons.cancel(url, options.cancel) }}
     </div>
 {% endmacro %}
 
