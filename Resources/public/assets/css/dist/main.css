@@ -8,7 +8,13 @@
   content: "▾";
   padding-left: 0.5em; }
 
+@media only screen and (max-width: 767px) {
+  .dataTables_wrapper > .ui.stackable.grid {
+    margin-left: -1rem !important;
+    margin-right: -1rem !important; } }
 @media only screen and (min-width: 767px) {
   .fixedHeader-floating {
     z-index: 2;
     margin-top: 40px !important; } }
+.hidden {
+  display: none; }

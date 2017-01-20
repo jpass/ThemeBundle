@@ -13,7 +13,15 @@ $widescreenMonitorBreakpoint : 1920px
   content: "▾"
   padding-left: 0.5em
 
+@media only screen and (max-width: ($tabletBreakpoint - 1) )
+  .dataTables_wrapper > .ui.stackable.grid
+    margin-left: -1rem !important
+    margin-right: -1rem !important
+
 @media only screen and (min-width: ($tabletBreakpoint - 1) )
   .fixedHeader-floating
     z-index: 2
     margin-top: 40px !important
+
+.hidden
+  display: none
