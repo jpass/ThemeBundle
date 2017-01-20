@@ -1,4 +1,4 @@
-{% macro button(url, options) %}
+{% macro button(url, options = {}) %}
     {% if options.label is not defined %}
         {% set options = options | merge ({label: false}) %}
     {% endif %}
