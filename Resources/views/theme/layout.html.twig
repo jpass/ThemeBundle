@@ -68,6 +68,10 @@
         $(document).ready(function(){
             var $menu = $('.main.menu');
 
+            $(window).on('resize', function(){
+                $('.pusher').css('min-height', $(window).height()+'px');
+            });
+
             if($(window).width() >= 1300)
             {
                 $menu.addClass('visible thin');
@@ -87,6 +91,27 @@
             }
 
             $('.ui.dropdown').dropdown();
+
+            var deleteModalTemplate = '<div class="ui basic small modal"><div class="ui icon header"> <i class="trash icon"></i>{{ 'Potwierdź usunięcie' | trans }} </div> <div class="actions"> <div class="ui red basic cancel inverted button"> <i class="remove icon"></i>{{ 'Nie' | trans }} </div> <div class="ui green ok inverted button"> <i class="checkmark icon"></i>{{ 'Tak' | trans }} </div> </div> </div>';
+
+            $(document).ready(function () {
+                if($('#_delete_form').length > 0)
+                {
+                    var $modal = $(deleteModalTemplate);
+                    $modal.appendTo('body');
+                    $modal.modal({
+                        closable: false,
+                        onApprove: function () {
+                            $('#_delete_form').submit();
+                        }
+                    });
+
+                    $('.delete_entity').click(function () {
+                        $modal.modal('show');
+                    });
+                }
+            });
+
         });
     </script>
 {% endblock %}
