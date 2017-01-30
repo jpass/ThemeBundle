@@ -1,3 +1,40 @@
 /*******************************
          Site Overrides
 *******************************/
+
+@colors: red, orange, yellow, olive, green, teal, blue, violet, purple, pink, brown, grey, black;
+
+.-(@i: length(@colors)) when (@i > 0) {
+        @c: extract(@colors, @i);
+        .ui.form .fields.@{c} .field textarea,
+        .ui.form .fields.@{c} .field select,
+        .ui.form .fields.@{c} .field input:not([type]),
+        .ui.form .fields.@{c} .field input[type="date"],
+        .ui.form .fields.@{c} .field input[type="datetime-local"],
+        .ui.form .fields.@{c} .field input[type="email"],
+        .ui.form .fields.@{c} .field input[type="number"],
+        .ui.form .fields.@{c} .field input[type="password"],
+        .ui.form .fields.@{c} .field input[type="search"],
+        .ui.form .fields.@{c} .field input[type="tel"],
+        .ui.form .fields.@{c} .field input[type="time"],
+        .ui.form .fields.@{c} .field input[type="text"],
+        .ui.form .fields.@{c} .field input[type="file"],
+        .ui.form .fields.@{c} .field input[type="url"],
+        .ui.form .field.@{c} textarea,
+        .ui.form .field.@{c} select,
+        .ui.form .field.@{c} input:not([type]),
+        .ui.form .field.@{c} input[type="date"],
+        .ui.form .field.@{c} input[type="datetime-local"],
+        .ui.form .field.@{c} input[type="email"],
+        .ui.form .field.@{c} input[type="number"],
+        .ui.form .field.@{c} input[type="password"],
+        .ui.form .field.@{c} input[type="search"],
+        .ui.form .field.@{c} input[type="tel"],
+        .ui.form .field.@{c} input[type="time"],
+        .ui.form .field.@{c} input[type="text"],
+        .ui.form .field.@{c} input[type="file"],
+        .ui.form .field.@{c} input[type="url"] {
+          border-color: @@c !important;
+        }
+    .-((@i - 1));
+} .-;
