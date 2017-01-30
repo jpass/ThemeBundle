@@ -92,7 +92,7 @@
     {% if options.cancel is not defined %}
         {% set options = options | merge ({cancel: {}}) %}
     {% endif %}
-    <div class="ui buttons">
+    <div class="ui right floated buttons">
         {{ buttons.cancel(url, options.cancel) }}
         <div class="or" data-text="{{ 'lub' | trans }}"></div>
         {{ buttons.save(options.save) }}
@@ -106,12 +106,15 @@
     {% if options.icon is not defined %}
         {% set options = options | merge ({icon: 'delete'}) %}
     {% endif %}
-    {{ form_start(delete_form) }}
-    <button type="submit" class="ui negative labeled icon button">
+    <button type="button" class="ui negative labeled icon button delete_entity" form="_delete_form">
         {% if options.icon is defined %}
             <i class="{{ options.icon }} icon"></i>
         {% endif %}
         {{ options.label | default('') | trans }}
     </button>
+{% endmacro %}
+
+{% macro delete_form(delete_form, options = {}) %}
+    {{ form_start(delete_form, { attr: { id: '_delete_form' }}) }}
     {{ form_end(delete_form) }}
 {% endmacro %}
