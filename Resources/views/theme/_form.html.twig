@@ -209,17 +209,12 @@
         {{ form_label(form, null, { widget: parent() }) }}
     {% else %}
         <div {{ block('widget_container_attributes') }}>
-            <div class="ui checkbox">
+            <div class="ui {{ toggle is defined and toggle ? 'toggle' }} checkbox">
                 {{ form_label(form, null, { widget: parent() }) }}
             </div>
         </div>
     {% endif %}
 {%- endblock checkbox_widget %}
-
-{% block toggle_widget -%}
-    {% set attr = attr|merge({class: (attr.class|default('') ~ ' field')|trim}) %}
-    aaa
-{%- endblock toggle_widget %}
 
 {% block radio_widget -%}
     {% set parent_label_class = parent_label_class|default('') %}
