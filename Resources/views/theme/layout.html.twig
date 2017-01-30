@@ -67,14 +67,24 @@
     <script>
         $(document).ready(function(){
             var $menu = $('.main.menu');
-            $menu
-                .sidebar({
-                    dimPage          : true,
-                    transition       : 'scale down',
-                    mobileTransition : 'uncover'
-                })
-            ;
-            $menu.sidebar('attach events', '.launch');
+
+            if($(window).width() >= 1300)
+            {
+                $menu.addClass('visible thin');
+                $('.big.launch.button').hide();
+                $('.pusher').css('min-height', $(window).height()+'px');
+            }
+            else
+            {
+                $menu
+                    .sidebar({
+                        dimPage: true,
+                        transition: 'scale down',
+                        mobileTransition: 'uncover'
+                    })
+                ;
+                $menu.sidebar('attach events', '.launch');
+            }
 
             $('.ui.dropdown').dropdown();
         });
