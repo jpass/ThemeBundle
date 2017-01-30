@@ -216,6 +216,11 @@
     {% endif %}
 {%- endblock checkbox_widget %}
 
+{% block toggle_widget -%}
+    {% set attr = attr|merge({class: (attr.class|default('') ~ ' field')|trim}) %}
+    aaa
+{%- endblock toggle_widget %}
+
 {% block radio_widget -%}
     {% set parent_label_class = parent_label_class|default('') %}
     {% if 'radio-inline' in parent_label_class %}
