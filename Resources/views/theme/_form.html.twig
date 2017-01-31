@@ -201,14 +201,13 @@
 
 {% block checkbox_widget -%}
     {% set parent_label_class = parent_label_class|default('') %}
-    {% set attr = attr|merge({class: (attr.class|default('') ~ ' field')|trim}) %}
     {% if errors|length > 0 -%}
         {% set attr = attr|merge({class: (attr.class|default('') ~ ' error')|trim}) %}
     {% endif %}
     {% if 'checkbox-inline' in parent_label_class %}
         {{ form_label(form, null, { widget: parent() }) }}
     {% else %}
-        <div {{ block('widget_container_attributes') }}>
+        <div class="field {{ errors|length > 0 ? 'error' }}">
             <div class="ui {{ toggle is defined and toggle ? 'toggle' }} checkbox">
                 {{ form_label(form, null, { widget: parent() }) }}
             </div>
