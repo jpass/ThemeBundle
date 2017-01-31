@@ -32,7 +32,7 @@
             ],
             dom:
                 "<'ui stackable grid'"+
-                    "<'row'"+
+                    "<'row header'"+
                         "<'sixteeen wide column'" +
                             "<'ui stackable secondary menu'" +
                             "<'item'B>"+
@@ -52,7 +52,15 @@
             fixedHeader: true,
             colReorder: true,
             stateSave:  true,
-            searchHighlight: true
+            searchHighlight: true,
+            "initComplete": function(settings, json) {
+                var $filter = $('.dataTables_filter');
+                var $label = $filter.find('label');
+                var $input = $filter.find('input');
+                $input.detach().appendTo($filter);
+                $filter.addClass('labeled');
+                $label.addClass('ui label');
+            }
         } );
 
         $.extend( true, $.fn.dataTable.Buttons.defaults, {
