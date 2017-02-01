@@ -3,7 +3,12 @@
         {% set options = options | merge ({label: false}) %}
     {% endif %}
     {% spaceless %}
-    <a href="{{ url }}" class="ui {{ options.label ? 'labeled' }} icon button {{ options.class is defined ? options.class }}" {% if options.title is defined %}title="{{ options.title }}"{% endif %}>
+    <a
+        href="{{ url }}"
+        class="ui {{ options.label ? 'labeled' }} icon button {{ options.class is defined ? options.class }}"
+        {% if options.title is defined %}title="{{ options.title }}"{% endif %}
+        {% if options.target is defined %}target="{{ options.target }}"{% endif %}
+    >
         {%- if options.icon is defined -%}
             <i class="{{ options.icon }} icon"></i>
         {%- endif -%}
