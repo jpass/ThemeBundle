@@ -12,6 +12,16 @@
             {% endblock %}
         </div>
         <div class="ui container">
+            {% if app.request.hasPreviousSession %}
+                {% for type, messages in app.session.flashbag.all() %}
+                    {% for message in messages %}
+                        <div class="ui {{ type }} message">
+                            <i class="close icon"></i>
+                            {{ message }}
+                        </div>
+                    {% endfor %}
+                {% endfor %}
+            {% endif %}
             {% block content %}
             {% endblock %}
         </div>
@@ -94,24 +104,30 @@
 
             var deleteModalTemplate = '<div class="ui basic small modal"><div class="ui icon header"> <i class="trash icon"></i>{{ 'Czy na pewno chcesz usunąć tę pozycję?' | trans }} </div> <div class="actions"> <div class="ui red basic cancel inverted button"> <i class="remove icon"></i>{{ 'Nie' | trans }} </div> <div class="ui green ok inverted button"> <i class="checkmark icon"></i>{{ 'Tak' | trans }} </div> </div> </div>';
 
-            $(document).ready(function () {
-                if($('#_delete_form').length > 0)
-                {
-                    var $modal = $(deleteModalTemplate);
-                    $modal.appendTo('body');
-                    $modal.modal({
-                        closable: false,
-                        onApprove: function () {
-                            $('#_delete_form').submit();
-                        }
-                    });
+            if($('#_delete_form').length > 0)
+            {
+                var $modal = $(deleteModalTemplate);
+                $modal.appendTo('body');
+                $modal.modal({
+                    closable: false,
+                    onApprove: function () {
+                        $('#_delete_form').submit();
+                    }
+                });
 
-                    $('.delete_entity').click(function () {
-                        $modal.modal('show');
-                    });
-                }
-            });
+                $('.delete_entity').click(function () {
+                    $modal.modal('show');
+                });
+            }
 
+            $('.message .close')
+                .on('click', function() {
+                    $(this)
+                        .closest('.message')
+                        .transition('fade')
+                    ;
+                })
+            ;
         });
     </script>
 {% endblock %}
