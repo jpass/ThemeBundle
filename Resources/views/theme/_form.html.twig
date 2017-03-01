@@ -223,8 +223,10 @@
         {% if errors|length > 0 -%}
             {% set attr = attr|merge({class: (attr.class|default('') ~ ' error')|trim}) %}
         {% endif %}
-        <div class="radio">
-            {{ form_label(form, null, { widget: parent() }) }}
+        <div class="field">
+            <div class="ui radio checkbox">
+                {{ form_label(form, null, { widget: parent() }) }}
+            </div>
         </div>
     {% endif %}
 {%- endblock radio_widget %}
@@ -276,7 +278,7 @@
         {%- endif -%}
     {% endif %}
     {{ widget|raw }}
-    <label{% for attrname, attrvalue in label_attr %} {{ attrname }}="{{ attrvalue }}"{% endfor %}>
+    <label{% for attrname, attrvalue in label_attr %} {{ attrname }}="{{ attrvalue }}"{% endfor %} for="{{ id }}">
         {{ translation_domain is same as(false) ? label : label|trans({}, translation_domain) }}
     </label>
 {%- endblock checkbox_radio_label %}
