@@ -26,9 +26,13 @@
             {% endblock %}
         </div>
     </div>
-    <div class="ui inverted vertical footer segment">
-        <br>
-    </div>
+    {% block footer_wrapper %}
+        <div class="ui inverted vertical footer segment">
+            {% block footer %}
+                <br>
+            {% endblock %}
+        </div>
+    {% endblock %}
 {% endblock %}
 
 
