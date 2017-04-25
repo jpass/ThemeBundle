@@ -123,3 +123,15 @@
     {{ form_start(delete_form, { attr: { id: '_delete_form' }}) }}
     {{ form_end(delete_form) }}
 {% endmacro %}
+
+{% macro backToList(url, options = {}) %}
+    {% import _self as buttons %}
+
+    {% if (options.label is not defined or not options.label) and options.title is not defined %}
+        {% set options = options | merge ({label: 'Powrót do listy'}) %}
+    {% endif %}
+    {% if options.icon is not defined %}
+        {% set options = options | merge ({icon: 'double left angle'}) %}
+    {% endif %}
+    {{ buttons.button(url, options) }}
+{% endmacro %}
