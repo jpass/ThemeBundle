@@ -109,37 +109,37 @@
             <div {{ block('widget_container_attributes') -}}>
         {% endif %}
         {% if with_seconds %}
-            <div class="large-4 columns">{{ form_widget(form.hour) }}</div>
-            <div class="large-4 columns">
-                <div class="row collapse">
-                    <div class="small-3 large-2 columns">
-                        <span class="prefix">:</span>
-                    </div>
-                    <div class="small-9 large-10 columns">
-                        {{ form_widget(form.minute) }}
+            <div class="ui three wide grid">
+                <div class="column">{{ form_widget(form.hour) }}</div>
+                <div class="column">
+                    <div class="row collapse">
+                        <div class="small-3 large-2 columns">
+                            <span class="prefix">:</span>
+                        </div>
+                        <div class="small-9 large-10 columns">
+                            {{ form_widget(form.minute) }}
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="large-4 columns">
-                <div class="row collapse">
-                    <div class="small-3 large-2 columns">
-                        <span class="prefix">:</span>
-                    </div>
-                    <div class="small-9 large-10 columns">
-                        {{ form_widget(form.second) }}
+                <div class="column">
+                    <div class="row collapse">
+                        <div class="small-3 large-2 columns">
+                            <span class="prefix">:</span>
+                        </div>
+                        <div class="small-9 large-10 columns">
+                            {{ form_widget(form.second) }}
+                        </div>
                     </div>
                 </div>
             </div>
         {% else %}
-            <div class="large-6 columns">{{ form_widget(form.hour) }}</div>
-            <div class="large-6 columns">
-                <div class="row collapse">
-                    <div class="small-3 large-2 columns">
-                        <span class="prefix">:</span>
-                    </div>
-                    <div class="small-9 large-10 columns">
-                        {{ form_widget(form.minute) }}
-                    </div>
+            <div class="ui two column grid">
+                <div class="column">{{ form_widget(form.hour) }}</div>
+                <div class="ui vertical divider">
+                    :
+                </div>
+                <div class="column">
+                    {{ form_widget(form.minute) }}
                 </div>
             </div>
         {% endif %}
