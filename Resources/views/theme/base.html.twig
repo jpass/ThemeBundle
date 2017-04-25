@@ -66,6 +66,15 @@
     {% block javascripts %}
         <script src="{{ asset('bundles/jpasstheme/assets/vendor/jquery/dist/jquery.min.js') }}"></script>
         <script src="{{ asset('bundles/jpasstheme/assets/semantic/dist/semantic.min.js') }}"></script>
+        <script>
+            history.navigationMode = 'compatible';
+            $( window ).on('load', function(){
+                $('.spinner-wrap').hide();
+            });
+            $( window ).on('unload', function(){
+                $('.spinner-wrap').show();
+            });
+        </script>
     {% endblock %}
 </body>
 </html>
