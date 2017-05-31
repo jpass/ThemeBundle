@@ -1,3 +1,124 @@
 /*******************************
          Site Overrides
 *******************************/
+
+/*-------------------
+       Colors
+--------------------*/
+
+/* Red */
+.ui.red.cell {
+  border-top: @coloredBorderSize solid @red;
+}
+.ui.inverted.red.cell {
+  background-color: @red !important;
+  color: @white !important;
+}
+
+/* Orange */
+.ui.orange.cell {
+  border-top: @coloredBorderSize solid @orange;
+}
+.ui.inverted.orange.cell {
+  background-color: @orange !important;
+  color: @white !important;
+}
+
+/* Yellow */
+.ui.yellow.cell {
+  border-top: @coloredBorderSize solid @yellow;
+}
+.ui.inverted.yellow.cell {
+  background-color: @yellow !important;
+  color: @white !important;
+}
+
+/* Olive */
+.ui.olive.cell {
+  border-top: @coloredBorderSize solid @olive;
+}
+.ui.inverted.olive.cell {
+  background-color: @olive !important;
+  color: @white !important;
+}
+
+/* Green */
+.ui.green.cell {
+  border-top: @coloredBorderSize solid @green;
+}
+.ui.inverted.green.cell {
+  background-color: @green !important;
+  color: @white !important;
+}
+
+/* Teal */
+.ui.teal.cell {
+  border-top: @coloredBorderSize solid @teal;
+}
+.ui.inverted.teal.cell {
+  background-color: @teal !important;
+  color: @white !important;
+}
+
+/* Blue */
+.ui.blue.cell {
+  border-top: @coloredBorderSize solid @blue;
+}
+.ui.inverted.blue.cell {
+  background-color: @blue !important;
+  color: @white !important;
+}
+
+/* Violet */
+.ui.violet.cell {
+  border-top: @coloredBorderSize solid @violet;
+}
+.ui.inverted.violet.cell {
+  background-color: @violet !important;
+  color: @white !important;
+}
+
+/* Purple */
+.ui.purple.cell {
+  border-top: @coloredBorderSize solid @purple;
+}
+.ui.inverted.purple.cell {
+  background-color: @purple !important;
+  color: @white !important;
+}
+
+/* Pink */
+.ui.pink.cell {
+  border-top: @coloredBorderSize solid @pink;
+}
+.ui.inverted.pink.cell {
+  background-color: @pink !important;
+  color: @white !important;
+}
+
+/* Brown */
+.ui.brown.cell {
+  border-top: @coloredBorderSize solid @brown;
+}
+.ui.inverted.brown.cell {
+  background-color: @brown !important;
+  color: @white !important;
+}
+
+/* Grey */
+.ui.grey.cell {
+  border-top: @coloredBorderSize solid @grey;
+}
+.ui.inverted.grey.cell {
+  background-color: @grey !important;
+  color: @white !important;
+}
+
+/* Black */
+.ui.black.cell {
+  border-top: @coloredBorderSize solid @black;
+}
+.ui.inverted.black.cell {
+  background-color: @black !important;
+  color: @white !important;
+}

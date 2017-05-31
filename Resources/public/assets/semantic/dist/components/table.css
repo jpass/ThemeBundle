@@ -1106,3 +1106,125 @@
          Site Overrides
 *******************************/
 
+
+/*-------------------
+       Colors
+--------------------*/
+
+
+/* Red */
+.ui.red.cell {
+  border-top: 0.2em solid #DB2828;
+}
+.ui.inverted.red.cell {
+  background-color: #DB2828 !important;
+  color: #FFFFFF !important;
+}
+
+/* Orange */
+.ui.orange.cell {
+  border-top: 0.2em solid #F2711C;
+}
+.ui.inverted.orange.cell {
+  background-color: #F2711C !important;
+  color: #FFFFFF !important;
+}
+
+/* Yellow */
+.ui.yellow.cell {
+  border-top: 0.2em solid #FBBD08;
+}
+.ui.inverted.yellow.cell {
+  background-color: #FBBD08 !important;
+  color: #FFFFFF !important;
+}
+
+/* Olive */
+.ui.olive.cell {
+  border-top: 0.2em solid #B5CC18;
+}
+.ui.inverted.olive.cell {
+  background-color: #B5CC18 !important;
+  color: #FFFFFF !important;
+}
+
+/* Green */
+.ui.green.cell {
+  border-top: 0.2em solid #21BA45;
+}
+.ui.inverted.green.cell {
+  background-color: #21BA45 !important;
+  color: #FFFFFF !important;
+}
+
+/* Teal */
+.ui.teal.cell {
+  border-top: 0.2em solid #00B5AD;
+}
+.ui.inverted.teal.cell {
+  background-color: #00B5AD !important;
+  color: #FFFFFF !important;
+}
+
+/* Blue */
+.ui.blue.cell {
+  border-top: 0.2em solid #2185D0;
+}
+.ui.inverted.blue.cell {
+  background-color: #2185D0 !important;
+  color: #FFFFFF !important;
+}
+
+/* Violet */
+.ui.violet.cell {
+  border-top: 0.2em solid #6435C9;
+}
+.ui.inverted.violet.cell {
+  background-color: #6435C9 !important;
+  color: #FFFFFF !important;
+}
+
+/* Purple */
+.ui.purple.cell {
+  border-top: 0.2em solid #A333C8;
+}
+.ui.inverted.purple.cell {
+  background-color: #A333C8 !important;
+  color: #FFFFFF !important;
+}
+
+/* Pink */
+.ui.pink.cell {
+  border-top: 0.2em solid #E03997;
+}
+.ui.inverted.pink.cell {
+  background-color: #E03997 !important;
+  color: #FFFFFF !important;
+}
+
+/* Brown */
+.ui.brown.cell {
+  border-top: 0.2em solid #A5673F;
+}
+.ui.inverted.brown.cell {
+  background-color: #A5673F !important;
+  color: #FFFFFF !important;
+}
+
+/* Grey */
+.ui.grey.cell {
+  border-top: 0.2em solid #767676;
+}
+.ui.inverted.grey.cell {
+  background-color: #767676 !important;
+  color: #FFFFFF !important;
+}
+
+/* Black */
+.ui.black.cell {
+  border-top: 0.2em solid #1B1C1D;
+}
+.ui.inverted.black.cell {
+  background-color: #1B1C1D !important;
+  color: #FFFFFF !important;
+}
